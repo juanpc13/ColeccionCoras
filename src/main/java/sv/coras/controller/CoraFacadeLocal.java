@@ -5,7 +5,6 @@
  */
 package sv.coras.controller;
 
-import java.util.List;
 import javax.ejb.Local;
 import sv.coras.entity.Cora;
 
@@ -14,20 +13,6 @@ import sv.coras.entity.Cora;
  * @author Juan
  */
 @Local
-public interface CoraFacadeLocal {
-
-    void create(Cora cora);
-
-    void edit(Cora cora);
-
-    void remove(Cora cora);
-
-    Cora find(Object id);
-
-    List<Cora> findAll();
-
-    List<Cora> findRange(int[] range);
-
-    int count();
+public interface CoraFacadeLocal extends AbstractInterface<Cora>{
     
 }

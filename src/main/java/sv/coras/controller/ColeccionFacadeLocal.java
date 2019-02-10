@@ -5,7 +5,6 @@
  */
 package sv.coras.controller;
 
-import java.util.List;
 import javax.ejb.Local;
 import sv.coras.entity.Coleccion;
 
@@ -14,20 +13,6 @@ import sv.coras.entity.Coleccion;
  * @author Juan
  */
 @Local
-public interface ColeccionFacadeLocal {
-
-    void create(Coleccion coleccion);
-
-    void edit(Coleccion coleccion);
-
-    void remove(Coleccion coleccion);
-
-    Coleccion find(Object id);
-
-    List<Coleccion> findAll();
-
-    List<Coleccion> findRange(int[] range);
-
-    int count();
+public interface ColeccionFacadeLocal extends AbstractInterface<Coleccion>{
     
 }

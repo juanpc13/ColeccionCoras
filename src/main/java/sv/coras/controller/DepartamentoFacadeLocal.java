@@ -5,7 +5,6 @@
  */
 package sv.coras.controller;
 
-import java.util.List;
 import javax.ejb.Local;
 import sv.coras.entity.Departamento;
 
@@ -14,20 +13,6 @@ import sv.coras.entity.Departamento;
  * @author Juan
  */
 @Local
-public interface DepartamentoFacadeLocal {
-
-    void create(Departamento departamento);
-
-    void edit(Departamento departamento);
-
-    void remove(Departamento departamento);
-
-    Departamento find(Object id);
-
-    List<Departamento> findAll();
-
-    List<Departamento> findRange(int[] range);
-
-    int count();
+public interface DepartamentoFacadeLocal extends AbstractInterface<Departamento>{
     
 }

@@ -5,14 +5,24 @@
  */
 package sv.coras.controller;
 
-import javax.ejb.Local;
-import sv.coras.entity.Estado;
+import java.util.List;
 
 /**
  *
  * @author Juan
  */
-@Local
-public interface EstadoFacadeLocal extends AbstractInterface<Estado>{
+public interface AbstractInterface<T> {
+
+    boolean create(T entity);
     
+    T createObId(T entity);
+
+    boolean edit(T entity);
+
+    T find(Object id);
+
+    List<T> findAll();
+
+    int count();
+
 }

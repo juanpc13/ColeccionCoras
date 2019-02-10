@@ -5,7 +5,6 @@
  */
 package sv.coras.controller;
 
-import java.util.List;
 import javax.ejb.Local;
 import sv.coras.entity.Casa;
 
@@ -14,20 +13,6 @@ import sv.coras.entity.Casa;
  * @author Juan
  */
 @Local
-public interface CasaFacadeLocal {
-
-    void create(Casa casa);
-
-    void edit(Casa casa);
-
-    void remove(Casa casa);
-
-    Casa find(Object id);
-
-    List<Casa> findAll();
-
-    List<Casa> findRange(int[] range);
-
-    int count();
+public interface CasaFacadeLocal extends AbstractInterface<Casa>{
     
 }

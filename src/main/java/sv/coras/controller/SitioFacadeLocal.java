@@ -5,7 +5,6 @@
  */
 package sv.coras.controller;
 
-import java.util.List;
 import javax.ejb.Local;
 import sv.coras.entity.Sitio;
 
@@ -14,20 +13,6 @@ import sv.coras.entity.Sitio;
  * @author Juan
  */
 @Local
-public interface SitioFacadeLocal {
-
-    void create(Sitio sitio);
-
-    void edit(Sitio sitio);
-
-    void remove(Sitio sitio);
-
-    Sitio find(Object id);
-
-    List<Sitio> findAll();
-
-    List<Sitio> findRange(int[] range);
-
-    int count();
+public interface SitioFacadeLocal extends AbstractInterface<Sitio>{
     
 }

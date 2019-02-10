@@ -5,7 +5,6 @@
  */
 package sv.coras.controller;
 
-import java.util.List;
 import javax.ejb.Local;
 import sv.coras.entity.Pais;
 
@@ -14,20 +13,6 @@ import sv.coras.entity.Pais;
  * @author Juan
  */
 @Local
-public interface PaisFacadeLocal {
-
-    void create(Pais pais);
-
-    void edit(Pais pais);
-
-    void remove(Pais pais);
-
-    Pais find(Object id);
-
-    List<Pais> findAll();
-
-    List<Pais> findRange(int[] range);
-
-    int count();
+public interface PaisFacadeLocal extends AbstractInterface<Pais>{
     
 }
