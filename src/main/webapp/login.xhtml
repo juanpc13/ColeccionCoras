@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+        <title>Login</title>
+        <link rel="stylesheet" href="css/login.css" />
+        <link rel="stylesheet" href="css/custom-primefaces.css" />
+    </h:head>
+
+    <h:body>
+
+        <p:dialog header="Modal Dialog" widgetVar="dlg" modal="true" height="100">
+            <h:outputText value="This is a Modal Dialog." />
+        </p:dialog>
+
+        <div class="ui-g" style="height: 100%">
+            <div class="ui-g-4" />
+
+            <div class="ui-g-4"  style="background-color: rgba(0, 0, 0, 0.1); height: 50%; margin-top: 10%; border-radius: 10px;">
+                <div id="singin" class="tabcontent" style="height: 65%">
+                    <h1>Bienvenido</h1>
+                    <br/>
+                    <p:inputText class="pi pi-user" placeholder="Usuario" style="margin: 3%" />
+                    <br/>
+                    <p:inputText placeholder="Contraseña" style="margin: 3%" />
+                    <br/>
+                    <p:commandButton value="Iniciar" />
+                </div>
+
+                <div id="singup" class="tabcontent" style="height: 65%">
+                    <h1>Registrame</h1>
+                    <p>Working on xD</p>
+                </div>
+
+                <button class="tablink" onclick="openTab('singin', this, '#3399ff')" id="defaultOpen">Iniciar</button>
+                <button class="tablink" onclick="openTab('singup', this, '#9966ff')">Registrarme</button>                
+            </div>
+
+            <div class="ui-g-4" />
+        </div>
+
+        <script type="text/javascript" src="js/login-visual.js" />
+
+
+
+    </h:body>
+</html>

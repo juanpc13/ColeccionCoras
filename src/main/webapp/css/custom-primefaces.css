@@ -9,8 +9,18 @@ and open the template in the editor.
 */
 
 /* Grid CSS para PrimeFaces */
+/*
 .ui-g div {
     background-color: #ededed;
     text-align: center;
     border: 1px solid #fafafa;
 }
+*/
+
+.center-grid {
+    background-color: rgba(0, 0, 0, 0.05);
+    text-align: center;
+    border: 1px solid #fafafa;
+}
+
+
