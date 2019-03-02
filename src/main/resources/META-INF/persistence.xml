@@ -10,6 +10,7 @@
     <class>sv.coras.entity.Pais</class>
     <class>sv.coras.entity.Sitio</class>
     <class>sv.coras.entity.Usuario</class>
+    <class>sv.coras.entity.TipoCora</class>
     <exclude-unlisted-classes>true</exclude-unlisted-classes>
     <properties/>
   </persistence-unit>
