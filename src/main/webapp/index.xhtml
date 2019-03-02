@@ -7,37 +7,18 @@
 
     <h:head>
         <title>Inicio</title>
-        <link rel="stylesheet" href="css/inicio.css" />
-        <link rel="stylesheet" href="css/topnav.css" />
         <link rel="stylesheet" href="css/custom-primefaces.css" />
     </h:head>
 
     <h:body>
 
-        <div class="topnav">
-            <a class="active" href="index.jsf">Inicio</a>
-            <a href="perfil.jsf">Perfil</a>
-            <a href="coleccion.jsf">Coleccion</a>
-        </div>
 
-        <p:dialog header="Modal Dialog" widgetVar="dlg" modal="true" height="100">
-            <h:outputText value="This is a Modal Dialog." />
-        </p:dialog>
+        <h:form id="form">
+            <h3>Coras más recientes</h3>
+            <p:repeat value="" var="cora">
+            </p:repeat>
 
-        <div class="ui-g" style="margin-top: 2.5%">
-            <div class="ui-g-1" />
-
-            <div class="ui-g-10 center-grid">
-                <h:form id="form">
-                    <h3>Coras más recientes</h3>
-                    <p:repeat value="" var="cora">
-                    </p:repeat>
-
-                </h:form>
-            </div>
-
-            <div class="ui-g-1" />
-        </div>
+        </h:form>
 
     </h:body>
 </html>
