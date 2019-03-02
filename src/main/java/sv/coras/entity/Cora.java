@@ -37,6 +37,7 @@ import javax.xml.bind.annotation.XmlTransient;
 @NamedQueries({
     @NamedQuery(name = "Cora.findAll", query = "SELECT c FROM Cora c")
     , @NamedQuery(name = "Cora.findByIdCora", query = "SELECT c FROM Cora c WHERE c.idCora = :idCora")
+    , @NamedQuery(name = "Cora.findByNombre", query = "SELECT c FROM Cora c WHERE c.nombre = :nombre")
     , @NamedQuery(name = "Cora.findByImagen", query = "SELECT c FROM Cora c WHERE c.imagen = :imagen")
     , @NamedQuery(name = "Cora.findByDisenador", query = "SELECT c FROM Cora c WHERE c.disenador = :disenador")
     , @NamedQuery(name = "Cora.findByDescripcion", query = "SELECT c FROM Cora c WHERE c.descripcion = :descripcion")
@@ -50,16 +51,19 @@ public class Cora implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @Column(name = "id_cora", nullable = false)
+    @Column(name = "id_cora")
     private Integer idCora;
+    @Size(max = 64)
+    @Column(name = "nombre")
+    private String nombre;
     @Size(max = 128)
-    @Column(name = "imagen", length = 128)
+    @Column(name = "imagen")
     private String imagen;
     @Size(max = 64)
-    @Column(name = "disenador", length = 64)
+    @Column(name = "disenador")
     private String disenador;
     @Size(max = 2147483647)
-    @Column(name = "descripcion", length = 2147483647)
+    @Column(name = "descripcion")
     private String descripcion;
     @Column(name = "fecha_incorporacion")
     @Temporal(TemporalType.DATE)
@@ -71,15 +75,12 @@ public class Cora implements Serializable {
     private Integer producidas;
     @Column(name = "activo")
     private Boolean activo;
-    @JoinColumn(name = "id_casa", referencedColumnName = "id_casa")
+    @JoinColumn(name = "id_estado", referencedColumnName = "id_estado")
     @ManyToOne
-    private Casa idCasa;
-    @JoinColumn(name = "id_estado", referencedColumnName = "id_estado", nullable = false)
-    @ManyToOne(optional = false)
     private Estado idEstado;
-    @JoinColumn(name = "id_sitio", referencedColumnName = "id_sitio", nullable = false)
-    @ManyToOne(optional = false)
-    private Sitio idSitio;
+    @JoinColumn(name = "id_tipo_cora", referencedColumnName = "id_tipo_cora")
+    @ManyToOne
+    private TipoCora idTipoCora;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idCora")
     private List<Coleccion> coleccionList;
 
@@ -96,6 +97,14 @@ public class Cora implements Serializable {
 
     public void setIdCora(Integer idCora) {
         this.idCora = idCora;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
     public String getImagen() {
@@ -154,14 +163,6 @@ public class Cora implements Serializable {
         this.activo = activo;
     }
 
-    public Casa getIdCasa() {
-        return idCasa;
-    }
-
-    public void setIdCasa(Casa idCasa) {
-        this.idCasa = idCasa;
-    }
-
     public Estado getIdEstado() {
         return idEstado;
     }
@@ -170,12 +171,12 @@ public class Cora implements Serializable {
         this.idEstado = idEstado;
     }
 
-    public Sitio getIdSitio() {
-        return idSitio;
+    public TipoCora getIdTipoCora() {
+        return idTipoCora;
     }
 
-    public void setIdSitio(Sitio idSitio) {
-        this.idSitio = idSitio;
+    public void setIdTipoCora(TipoCora idTipoCora) {
+        this.idTipoCora = idTipoCora;
     }
 
     @XmlTransient

@@ -42,24 +42,24 @@ public class Casa implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @Column(name = "id_casa", nullable = false)
+    @Column(name = "id_casa")
     private Integer idCasa;
     @Size(max = 64)
-    @Column(name = "nombre", length = 64)
+    @Column(name = "nombre")
     private String nombre;
     @Size(max = 8)
-    @Column(name = "identificador", length = 8)
+    @Column(name = "identificador")
     private String identificador;
     @Size(max = 128)
-    @Column(name = "imagen", length = 128)
+    @Column(name = "imagen")
     private String imagen;
     @Size(max = 2147483647)
-    @Column(name = "descripcion", length = 2147483647)
+    @Column(name = "descripcion")
     private String descripcion;
     @Column(name = "activo")
     private Boolean activo;
     @OneToMany(mappedBy = "idCasa")
-    private List<Cora> coraList;
+    private List<Coleccion> coleccionList;
 
     public Casa() {
     }
@@ -117,12 +117,12 @@ public class Casa implements Serializable {
     }
 
     @XmlTransient
-    public List<Cora> getCoraList() {
-        return coraList;
+    public List<Coleccion> getColeccionList() {
+        return coleccionList;
     }
 
-    public void setCoraList(List<Cora> coraList) {
-        this.coraList = coraList;
+    public void setColeccionList(List<Coleccion> coleccionList) {
+        this.coleccionList = coleccionList;
     }
 
     @Override

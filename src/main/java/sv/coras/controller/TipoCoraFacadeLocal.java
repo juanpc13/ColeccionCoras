@@ -6,13 +6,13 @@
 package sv.coras.controller;
 
 import javax.ejb.Local;
-import sv.coras.entity.Departamento;
+import sv.coras.entity.TipoCora;
 
 /**
  *
  * @author Juan
  */
 @Local
-public interface DepartamentoFacadeLocal extends AbstractInterface<Departamento>{
+public interface TipoCoraFacadeLocal extends AbstractInterface<TipoCora>{
     
 }

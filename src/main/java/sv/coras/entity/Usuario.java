@@ -47,33 +47,33 @@ public class Usuario implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @Column(name = "id_usuario", nullable = false)
+    @Column(name = "id_usuario")
     private Integer idUsuario;
     @Size(max = 128)
-    @Column(name = "nombres", length = 128)
+    @Column(name = "nombres")
     private String nombres;
     @Size(max = 128)
-    @Column(name = "apellidos", length = 128)
+    @Column(name = "apellidos")
     private String apellidos;
     @Size(max = 128)
-    @Column(name = "correo", length = 128)
+    @Column(name = "correo")
     private String correo;
     @Size(max = 128)
-    @Column(name = "password", length = 128)
+    @Column(name = "password")
     private String password;
     @Size(max = 128)
-    @Column(name = "llave", length = 128)
+    @Column(name = "llave")
     private String llave;
     @Size(max = 128)
-    @Column(name = "foto", length = 128)
+    @Column(name = "foto")
     private String foto;
     @Column(name = "activo")
     private Boolean activo;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idUsuario")
     private List<Coleccion> coleccionList;
-    @JoinColumn(name = "id_departamento", referencedColumnName = "id_departamento")
+    @JoinColumn(name = "id_pais", referencedColumnName = "id_pais")
     @ManyToOne
-    private Departamento idDepartamento;
+    private Pais idPais;
 
     public Usuario() {
     }
@@ -155,12 +155,12 @@ public class Usuario implements Serializable {
         this.coleccionList = coleccionList;
     }
 
-    public Departamento getIdDepartamento() {
-        return idDepartamento;
+    public Pais getIdPais() {
+        return idPais;
     }
 
-    public void setIdDepartamento(Departamento idDepartamento) {
-        this.idDepartamento = idDepartamento;
+    public void setIdPais(Pais idPais) {
+        this.idPais = idPais;
     }
 
     @Override

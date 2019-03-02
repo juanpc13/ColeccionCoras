@@ -8,7 +8,6 @@ package sv.coras.entity;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.Basic;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -27,50 +26,50 @@ import javax.xml.bind.annotation.XmlTransient;
  * @author Juan
  */
 @Entity
-@Table(name = "sitio", catalog = "postgres", schema = "public")
+@Table(name = "tipo_cora", catalog = "postgres", schema = "public")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Sitio.findAll", query = "SELECT s FROM Sitio s")
-    , @NamedQuery(name = "Sitio.findByIdSitio", query = "SELECT s FROM Sitio s WHERE s.idSitio = :idSitio")
-    , @NamedQuery(name = "Sitio.findByNombre", query = "SELECT s FROM Sitio s WHERE s.nombre = :nombre")
-    , @NamedQuery(name = "Sitio.findByImagen", query = "SELECT s FROM Sitio s WHERE s.imagen = :imagen")
-    , @NamedQuery(name = "Sitio.findByDescripcion", query = "SELECT s FROM Sitio s WHERE s.descripcion = :descripcion")
-    , @NamedQuery(name = "Sitio.findByActivo", query = "SELECT s FROM Sitio s WHERE s.activo = :activo")})
-public class Sitio implements Serializable {
+    @NamedQuery(name = "TipoCora.findAll", query = "SELECT t FROM TipoCora t")
+    , @NamedQuery(name = "TipoCora.findByIdTipoCora", query = "SELECT t FROM TipoCora t WHERE t.idTipoCora = :idTipoCora")
+    , @NamedQuery(name = "TipoCora.findByNombre", query = "SELECT t FROM TipoCora t WHERE t.nombre = :nombre")
+    , @NamedQuery(name = "TipoCora.findByImagen", query = "SELECT t FROM TipoCora t WHERE t.imagen = :imagen")
+    , @NamedQuery(name = "TipoCora.findByDescripcion", query = "SELECT t FROM TipoCora t WHERE t.descripcion = :descripcion")
+    , @NamedQuery(name = "TipoCora.findByActivo", query = "SELECT t FROM TipoCora t WHERE t.activo = :activo")})
+public class TipoCora implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @Column(name = "id_sitio", nullable = false)
-    private Integer idSitio;
+    @Column(name = "id_tipo_cora")
+    private Integer idTipoCora;
     @Size(max = 64)
-    @Column(name = "nombre", length = 64)
+    @Column(name = "nombre")
     private String nombre;
     @Size(max = 128)
-    @Column(name = "imagen", length = 128)
+    @Column(name = "imagen")
     private String imagen;
     @Size(max = 2147483647)
-    @Column(name = "descripcion", length = 2147483647)
+    @Column(name = "descripcion")
     private String descripcion;
     @Column(name = "activo")
     private Boolean activo;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idSitio")
+    @OneToMany(mappedBy = "idTipoCora")
     private List<Cora> coraList;
 
-    public Sitio() {
+    public TipoCora() {
     }
 
-    public Sitio(Integer idSitio) {
-        this.idSitio = idSitio;
+    public TipoCora(Integer idTipoCora) {
+        this.idTipoCora = idTipoCora;
     }
 
-    public Integer getIdSitio() {
-        return idSitio;
+    public Integer getIdTipoCora() {
+        return idTipoCora;
     }
 
-    public void setIdSitio(Integer idSitio) {
-        this.idSitio = idSitio;
+    public void setIdTipoCora(Integer idTipoCora) {
+        this.idTipoCora = idTipoCora;
     }
 
     public String getNombre() {
@@ -117,18 +116,18 @@ public class Sitio implements Serializable {
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (idSitio != null ? idSitio.hashCode() : 0);
+        hash += (idTipoCora != null ? idTipoCora.hashCode() : 0);
         return hash;
     }
 
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Sitio)) {
+        if (!(object instanceof TipoCora)) {
             return false;
         }
-        Sitio other = (Sitio) object;
-        if ((this.idSitio == null && other.idSitio != null) || (this.idSitio != null && !this.idSitio.equals(other.idSitio))) {
+        TipoCora other = (TipoCora) object;
+        if ((this.idTipoCora == null && other.idTipoCora != null) || (this.idTipoCora != null && !this.idTipoCora.equals(other.idTipoCora))) {
             return false;
         }
         return true;
@@ -136,7 +135,7 @@ public class Sitio implements Serializable {
 
     @Override
     public String toString() {
-        return "sv.coras.entity.Sitio[ idSitio=" + idSitio + " ]";
+        return "sv.coras.entity.TipoCora[ idTipoCora=" + idTipoCora + " ]";
     }
     
 }

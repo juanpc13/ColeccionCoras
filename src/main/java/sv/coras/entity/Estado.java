@@ -8,7 +8,6 @@ package sv.coras.entity;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.Basic;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -42,20 +41,20 @@ public class Estado implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @Column(name = "id_estado", nullable = false)
+    @Column(name = "id_estado")
     private Integer idEstado;
     @Size(max = 64)
-    @Column(name = "nombre", length = 64)
+    @Column(name = "nombre")
     private String nombre;
     @Size(max = 128)
-    @Column(name = "imagen", length = 128)
+    @Column(name = "imagen")
     private String imagen;
     @Size(max = 2147483647)
-    @Column(name = "descripcion", length = 2147483647)
+    @Column(name = "descripcion")
     private String descripcion;
     @Column(name = "activo")
     private Boolean activo;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idEstado")
+    @OneToMany(mappedBy = "idEstado")
     private List<Cora> coraList;
 
     public Estado() {

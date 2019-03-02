@@ -8,7 +8,6 @@ package sv.coras.entity;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.Basic;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -40,15 +39,15 @@ public class Pais implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @Column(name = "id_pais", nullable = false)
+    @Column(name = "id_pais")
     private Integer idPais;
     @Size(max = 128)
-    @Column(name = "nombre", length = 128)
+    @Column(name = "nombre")
     private String nombre;
     @Column(name = "activo")
     private Boolean activo;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idPais")
-    private List<Departamento> departamentoList;
+    @OneToMany(mappedBy = "idPais")
+    private List<Usuario> usuarioList;
 
     public Pais() {
     }
@@ -82,12 +81,12 @@ public class Pais implements Serializable {
     }
 
     @XmlTransient
-    public List<Departamento> getDepartamentoList() {
-        return departamentoList;
+    public List<Usuario> getUsuarioList() {
+        return usuarioList;
     }
 
-    public void setDepartamentoList(List<Departamento> departamentoList) {
-        this.departamentoList = departamentoList;
+    public void setUsuarioList(List<Usuario> usuarioList) {
+        this.usuarioList = usuarioList;
     }
 
     @Override

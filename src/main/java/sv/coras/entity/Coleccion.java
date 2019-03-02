@@ -29,6 +29,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @NamedQueries({
     @NamedQuery(name = "Coleccion.findAll", query = "SELECT c FROM Coleccion c")
     , @NamedQuery(name = "Coleccion.findByIdColeccion", query = "SELECT c FROM Coleccion c WHERE c.idColeccion = :idColeccion")
+    , @NamedQuery(name = "Coleccion.findByEstadoCora", query = "SELECT c FROM Coleccion c WHERE c.estadoCora = :estadoCora")
     , @NamedQuery(name = "Coleccion.findByActivo", query = "SELECT c FROM Coleccion c WHERE c.activo = :activo")})
 public class Coleccion implements Serializable {
 
@@ -36,14 +37,19 @@ public class Coleccion implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @Column(name = "id_coleccion", nullable = false)
+    @Column(name = "id_coleccion")
     private Integer idColeccion;
+    @Column(name = "estado_cora")
+    private Integer estadoCora;
     @Column(name = "activo")
     private Boolean activo;
-    @JoinColumn(name = "id_cora", referencedColumnName = "id_cora", nullable = false)
+    @JoinColumn(name = "id_casa", referencedColumnName = "id_casa")
+    @ManyToOne
+    private Casa idCasa;
+    @JoinColumn(name = "id_cora", referencedColumnName = "id_cora")
     @ManyToOne(optional = false)
     private Cora idCora;
-    @JoinColumn(name = "id_usuario", referencedColumnName = "id_usuario", nullable = false)
+    @JoinColumn(name = "id_usuario", referencedColumnName = "id_usuario")
     @ManyToOne(optional = false)
     private Usuario idUsuario;
 
@@ -62,12 +68,28 @@ public class Coleccion implements Serializable {
         this.idColeccion = idColeccion;
     }
 
+    public Integer getEstadoCora() {
+        return estadoCora;
+    }
+
+    public void setEstadoCora(Integer estadoCora) {
+        this.estadoCora = estadoCora;
+    }
+
     public Boolean getActivo() {
         return activo;
     }
 
     public void setActivo(Boolean activo) {
         this.activo = activo;
+    }
+
+    public Casa getIdCasa() {
+        return idCasa;
+    }
+
+    public void setIdCasa(Casa idCasa) {
+        this.idCasa = idCasa;
     }
 
     public Cora getIdCora() {

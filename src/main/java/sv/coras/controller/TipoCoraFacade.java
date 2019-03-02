@@ -8,14 +8,14 @@ package sv.coras.controller;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import sv.coras.entity.Departamento;
+import sv.coras.entity.TipoCora;
 
 /**
  *
  * @author Juan
  */
 @Stateless
-public class DepartamentoFacade extends AbstractFacade<Departamento> implements DepartamentoFacadeLocal {
+public class TipoCoraFacade extends AbstractFacade<TipoCora> implements TipoCoraFacadeLocal {
 
     @PersistenceContext(unitName = "ColeccionCoras_PU")
     private EntityManager em;
@@ -25,8 +25,8 @@ public class DepartamentoFacade extends AbstractFacade<Departamento> implements 
         return em;
     }
 
-    public DepartamentoFacade() {
-        super(Departamento.class);
+    public TipoCoraFacade() {
+        super(TipoCora.class);
     }
     
 }
