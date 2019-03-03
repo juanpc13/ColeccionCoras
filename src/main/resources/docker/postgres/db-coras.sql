@@ -27,8 +27,9 @@ CREATE TABLE casa(
 CREATE TABLE cora(
     id_cora serial PRIMARY KEY,
     id_tipo_cora integer,
-    id_estado integer,    
+    id_estado integer,
     nombre VARCHAR (64),
+    anio integer,
     imagen VARCHAR (128),
     disenador VARCHAR (64),
     descripcion text,
