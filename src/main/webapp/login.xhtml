@@ -11,14 +11,48 @@
     </h:head>
 
     <h:body>
-
+        
+        <h:form>
+            
         <h1>Bienvenido</h1>
+        <h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
+            <p:outputLabel for="cor" value="Correo:" />
+            <p:inputText id="cor" value="#{loginView.correo}" />
+            
+            <p:outputLabel for="pas" value="Contraseña:" />
+            <p:password id="pas" value="#{loginView.password}" />            
+        </h:panelGrid>
+        
+        <p:commandButton value="Iniciar" actionListener="#{loginView.iniciar}" />
         <br/>
-        <p:inputText placeholder="Usuario" />
-        <br/>
-        <p:inputText placeholder="Contraseña" />
-        <br/>
-        <p:commandButton value="Iniciar" />
+
+        <h1>Registrar</h1>
+        <h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
+            <!--p:outputLabel for="foto" value="Foto:" /-->
+            <!--p:fileUpload id="foto" label="Foto Perfil" mode="simple" skinSimple="true"/-->
+            
+            <!--p:outputLabel for="pais" value="Pais:" /-->
+            <!--p:selectOneMenu id="pais" value="" dynamic="true" style="width:128px">
+                <f:selectItem itemLabel="Seleccione" noSelectionOption="true"/>
+                <f:selectItems value="" />
+            </p:selectOneMenu-->
+            
+            <p:outputLabel for="nombres" value="Nombres:" />
+            <p:inputText id="nombres" value="#{loginView.usuario.nombres}" />
+            
+            <p:outputLabel for="apellidos" value="Apellidos:" />
+            <p:inputText id="apellidos" value="#{loginView.usuario.apellidos}" />
+            
+            <p:outputLabel for="correo" value="Correo:" />
+            <p:inputText id="correo" value="#{loginView.usuario.correo}" />
+            
+            <p:outputLabel for="password" value="Contraseña:" />
+            <p:password id="password" value="#{loginView.usuario.password}" />
+        </h:panelGrid>
+        
+        <p:commandButton value="Registrar" actionListener="#{loginView.registrar}" />
+        
+        </h:form>
 
     </h:body>
 </html>

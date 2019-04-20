@@ -15,4 +15,6 @@ import sv.coras.entity.Usuario;
 @Local
 public interface UsuarioFacadeLocal extends AbstractInterface<Usuario>{
     
+    public Usuario findByEmail(String email);
+    
 }

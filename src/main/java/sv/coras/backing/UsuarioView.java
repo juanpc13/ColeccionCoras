@@ -5,12 +5,14 @@
  */
 package sv.coras.backing;
 
+import sv.coras.utils.UserAuthentication;
 import java.io.Serializable;
 import javax.annotation.PostConstruct;
 import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 import sv.coras.controller.UsuarioFacadeLocal;
+import sv.coras.entity.Usuario;
 
 /**
  *
@@ -20,6 +22,8 @@ import sv.coras.controller.UsuarioFacadeLocal;
 @ViewScoped
 public class UsuarioView implements Serializable{
     
+    private Usuario usuario;
+    
     @Inject
     private UsuarioFacadeLocal ufl;
     
@@ -27,6 +31,12 @@ public class UsuarioView implements Serializable{
     
     @PostConstruct
     public void init(){
+        UserAuthentication ua = new UserAuthentication();        
+        if (ua.validUserKey()) {
+            usuario = ua.getUsuario();
+        }else{
+            ua.redirect("/login.jsf");
+        }
         numberOfUsers = ufl.count();
     }
     
@@ -40,5 +50,15 @@ public class UsuarioView implements Serializable{
     public void setNumberOfUsers(Integer numberOfUsers) {
         this.numberOfUsers = numberOfUsers;
     }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+    
+    
     
 }
